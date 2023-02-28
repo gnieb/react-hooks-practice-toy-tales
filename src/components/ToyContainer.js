@@ -9,7 +9,9 @@ function ToyContainer({toyList,}) {
       <ToyCard 
       toyName={toy.name} 
       toyImage={toy.image} 
-      toyLikes={toy.likes} />
+      toyLikes={toy.likes}
+      key={toy.id}
+      id={toy.id} />
     )
   })
 

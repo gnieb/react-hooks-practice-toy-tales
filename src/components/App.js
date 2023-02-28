@@ -15,8 +15,6 @@ function App() {
   const [toyList, setToyList] = useState([]);
   const [newToyName, setNewToyName] = useState('');
   const [newToyImage, setNewToyImage] = useState('');
-  const [newToyLikes, setNewToyLikes] = useState(0);
-
 
   function handleNewToyName (e) {
     setNewToyName(newToyName => e.target.value)
@@ -31,7 +29,6 @@ function App() {
     .then((response) => response.json())
     .then((toys) => {
       setToyList(toys)
-      console.log(toys)
     })
   }, []);
 
