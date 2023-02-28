@@ -52,6 +52,23 @@ function App() {
    
   }
 
+  function handleUpdatedToy (updatedToy) {
+    const updatedToyList = toyList.map(originalToy => {
+      if (originalToy.id === updatedToy.id) {
+        return updatedToy
+      } else {
+        return originalToy
+      }
+    })
+    setToyList(updatedToyList)
+  }
+
+
+  function handleDeletedToy (deletedToy) {
+    const toysWithoutDeletedToy = toyList.filter((toy) => toy.id !== deletedToy.id)
+    setToyList(toysWithoutDeletedToy)
+  }
+
   return (
     <>
       <Header />
@@ -68,7 +85,8 @@ function App() {
       </div>
       <ToyContainer 
       toyList={toyList}
-      setToyList={setToyList}
+      handleUpdatedToy={handleUpdatedToy}
+      handleDeletedToy={handleDeletedToy}
        />
     </>
   );
